@@ -1,0 +1,101 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+.mainCont{
+    height: 100vh;
+    background-color: rgba(2,2,2,0.15);
+}
+.spaceDiv{
+    height:30%;
+}
+.Box{
+    border: solid;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    max-width: 500px;
+    background-color: rgba(255,255,255,1);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px;
+}
+.lBHeader{
+    text-align: center;
+    margin-bottom: 0;
+}
+.lBSub{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 75%;
+}
+#lBForm{
+    text-align: center;
+}
+#sBForm{
+    text-align: center;
+    padding-bottom: 20px;
+    display: none;
+}
+.sTbl{
+    padding: 10%;
+}
+.sCol{
+    width:50%;
+}
+.sColLbl{
+    text-align: left;
+}
+.sIn{
+    width: 100%;
+}
+.aTbl{
+    width: 100%;
+	padding: 5%;
+	margin: 0px;
+	border-spacing: 0px;
+}
+.aCol{
+	margin: 0px;
+}
+.aRow{
+	border: solid 1px;
+	margin: 0px;
+	width: 25%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.aColLbl{
+    text-align: center;
+}
+.nvB{
+    text-align: center;
+    padding-bottom: 30px;
+}
+.fLogin{
+	text-align: center;
+	color: rgba(255,0,0,1);
+}
+#login{
+    border: solid 2px rgba(52,147,235,1);
+    color:rgba(52,147,235,1);
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: inset 0px 0px 5px rgba(52,147,235,1);
+}
+#login:hover{
+    cursor: pointer;
+}
+#signup{
+    border: solid 2px rgba(52,147,235,1);
+    background-color: rgba(52,147,235,1);
+    color:rgba(255,255,255,1);
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: 0px 0px 5px rgba(52,147,235,1);
+}
+#signup:hover{
+    cursor: pointer;
+}

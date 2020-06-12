@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+		<div class="mainCont">
+            <div class="spaceDiv">
+            </div>
+            <div class="Box">
+                <h1 class="lBHeader">Schedule A Reminder</h1>
+                <form id="lBForm" method="post" action="">
+                    <table class="sTbl">
+                        <tr>
+                            <td class="sCol sColLbl">
+                                <label for="username">Date:</label>
+                            </td>
+                            <td style="width: 50%">
+                                <input class="sIn" type="date" name="username" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sColLbl">
+                                <label for="password">Time:</label>
+                            </td>
+                            <td style="width: 50%">
+                                <input class="sIn" type="time" name="password" value="">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <p class="nvB">
+                    <span id="login" onclick="mkForm();">Add Reminder</span>
+                </p>
+            </div>
+            <br>
+            <div class="Box">
+                <h2 class="lBHeader">My Message Queue</h2>
+                <p class="nvB">
+                    # message queue
+                </p>
+            </div>
+        </div>
+        <script>
+            function mkForm(){
+                document.getElementById("lBForm").submit();
+            }
+        </script>
+{% endblock %}		

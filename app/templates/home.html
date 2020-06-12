@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+		<div class="mainCont">
+            <div class="spaceDiv">
+            </div>
+            <div class="Box">
+                <h2 class="lBHeader">Active Users</h2>
+                <p class="lBSub">
+                    in the last 20 minutes
+                </p>
+                <p class="nvB">
+                    {{ numAct }}
+                </p>
+            </div>
+            <br>
+            <div class="Box">
+                <h1 class="lBHeader">Welcome</h1>
+                <p class="lBSub">
+                    to your<br>
+                    reminder service
+                </p>
+                <form id="lBForm" method="post" action="/schedule/">{% csrf_token %}
+                    <table class="sTbl">
+                        <tr>
+                            <td class="sCol sColLbl">
+                                <label for="username">Username:</label>
+                            </td>
+                            <td style="width: 50%">
+                                <input class="sIn" type="text" name="username" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sColLbl">
+                                <label for="password">Password:</label>
+                            </td>
+                            <td style="width: 50%">
+                                <input class="sIn" type="password" name="password" value="">
+                            </td>
+                        </tr>
+                    </table>
+					<input type="hidden" name="type" value="L"> 
+                </form>
+                <form id="sBForm" method="post" action="/schedule/">{% csrf_token %}
+                    <table class="sTbl">
+                        <tr>
+                            <td class="sCol sColLbl">
+                                <label for="fname">First Name:</label>
+                            </td>
+                            <td style="width: 50%">
+                                <input class="sIn" type="text" name="fname" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sColLbl">
+                                <label for="lname">Last Name:</label>
+                            </td>
+                            <td>
+                                <input class="sIn" type="text" name="lname" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sColLbl">
+                                <label for="username">Phone Number:</label>
+                            </td>
+                            <td>
+                                <input class="sIn" type="tel" name="tel" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sColLbl">
+                                <label for="password">Password:</label>
+                            </td>
+                            <td class="sColLbl">
+                                <input class="sIn" type="password" name="password" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sColLbl">
+                                <label for="cpassword">Confirm Password:</label>
+                            </td>
+                            <td class="sColLbl">
+                                <input class="sIn" type="password" name="password" value="">
+                            </td>
+                        </tr>
+                    </table>
+					<input type="hidden" name="type" value="C"> 
+                </form>
+                <p class="nvB">
+                    <span id="login" onclick="mkForm();">Log In</span>
+                    <span id="signup" onclick="mkUser();">Sign Up</span>
+                </p>
+				<p class="fLogin">{{ loginSt }}</p>
+            </div>
+        </div>
+        <script>
+            function mkForm(){
+                if(document.getElementById("lBForm").style.display != "none"){
+                    document.getElementById("lBForm").submit();
+                }else{
+                    document.getElementById("sBForm").style.display = "none";
+                    document.getElementById("lBForm").style.display = "block";
+                }
+            }
+            function mkUser(){
+                if(document.getElementById("lBForm").style.display != "none"){
+                    document.getElementById("sBForm").style.display = "block";
+                    document.getElementById("lBForm").style.display = "none";
+                }else if(document.getElementById("lBForm").style.display == "none"){
+                    document.getElementById("sBForm").submit();
+                }else{
+                    document.getElementById("sBForm").style.display = "none";
+                    document.getElementById("lBForm").style.display = "block";
+                }
+            }
+        </script>
+{% endblock %}		

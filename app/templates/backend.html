@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+		<div class="mainCont">
+            <div class="spaceDiv">
+            </div>
+            <div class="Box">
+                <h1 class="lBHeader">Welcome</h1>
+                <p class="lBSub">
+                    Reminder Service Backend
+                </p>
+                <form id="lBForm" method="post" action="/adminpanel/">{% csrf_token %}
+                    <table class="sTbl">
+                        <tr>
+                            <td class="sCol sColLbl">
+                                <label for="username">Username:</label>
+                            </td>
+                            <td style="width: 50%">
+                                <input class="sIn" type="text" name="username" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sColLbl">
+                                <label for="password">Password:</label>
+                            </td>
+                            <td style="width: 50%">
+                                <input class="sIn" type="password" name="password" value="">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <p class="nvB">
+                    <span id="login" onclick="mkForm();">Log In</span>
+                </p>
+				<p class="fLogin">{{ loginSt }}</p>
+            </div>
+        </div>
+        <script>
+            function mkForm(){
+                if(document.getElementById("lBForm").style.display != "none"){
+                    document.getElementById("lBForm").submit();
+                }else{
+                    document.getElementById("sBForm").style.display = "none";
+                    document.getElementById("lBForm").style.display = "block";
+                }
+            }
+            function mkUser(){
+                if(document.getElementById("lBForm").style.display != "none"){
+                    document.getElementById("sBForm").style.display = "block";
+                    document.getElementById("lBForm").style.display = "none";
+                }else if(document.getElementById("lBForm").style.display == "none"){
+                    document.getElementById("sBForm").submit();
+                }else{
+                    document.getElementById("sBForm").style.display = "none";
+                    document.getElementById("lBForm").style.display = "block";
+                }
+            }
+        </script>
+{% endblock %}		

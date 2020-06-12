@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+		<div class="mainCont">
+            <div class="spaceDiv">
+            </div>
+            <div class="Box">
+                <h1 class="lBHeader">Admin View</h1>
+                <h2 class="lBHeader">Message Queue</h2>
+                <table class="aTbl">
+                    <tr class="aCol aColLbl">
+						<td class="aRow">
+							<b>Destination</b>
+						</td>
+						<td class="aRow">
+							<b>Reminder<br>Date</b>
+						</td>
+						<td class="aRow">
+							<b>Reminder<br>Time</b>
+						</td>
+						<td class="aRow">
+							<b>Sent</b>
+						</td>
+					</tr>
+					{% for row in messageQueue %}
+					<tr class="aCol aColLbl">
+						{% for item in row %}
+						<td class="aRow">
+							{{ item }}
+						</td>
+						{% endfor %}
+					</tr>
+					{% endfor %}
+                </table>
+            </div>
+        </div>
+{% endblock %}		

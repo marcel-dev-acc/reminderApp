@@ -2,8 +2,7 @@
 
 {% block content %}
 		<div class="mainCont">
-            <div class="spaceDiv">
-            </div>
+            <div class="spaceDiv"></div>
             <div class="Box">
                 <h1 class="lBHeader">Admin View</h1>
                 <h2 class="lBHeader">Message Queue</h2>
@@ -22,7 +21,7 @@
 							<b>Sent</b>
 						</td>
 					</tr>
-					{% for row in messageQueue %}
+					{% for row in msgQueue %}
 					<tr class="aCol aColLbl">
 						{% for item in row %}
 						<td class="aRow">
@@ -33,5 +32,10 @@
 					{% endfor %}
                 </table>
             </div>
+			<div class="spaceDiv"></div>
+			<div class="spaceDiv"></div>
+			<div class="spaceDiv"></div>
+			<div class="spaceDiv"></div>
+			<div class="spaceDiv"></div>
         </div>
 {% endblock %}		

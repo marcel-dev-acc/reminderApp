@@ -2,8 +2,7 @@
 
 {% block content %}
 		<div class="mainCont">
-            <div class="spaceDiv">
-            </div>
+            <div class="spaceDiv"></div>
             <div class="Box">
                 <h1 class="lBHeader">Welcome</h1>
                 <p class="lBSub">
@@ -34,26 +33,14 @@
                 </p>
 				<p class="fLogin">{{ loginSt }}</p>
             </div>
+			<div class="spaceDiv"></div>
+			<div class="spaceDiv"></div>
+			<div class="spaceDiv"></div>
+			<div class="spaceDiv"></div>
         </div>
         <script>
             function mkForm(){
-                if(document.getElementById("lBForm").style.display != "none"){
-                    document.getElementById("lBForm").submit();
-                }else{
-                    document.getElementById("sBForm").style.display = "none";
-                    document.getElementById("lBForm").style.display = "block";
-                }
-            }
-            function mkUser(){
-                if(document.getElementById("lBForm").style.display != "none"){
-                    document.getElementById("sBForm").style.display = "block";
-                    document.getElementById("lBForm").style.display = "none";
-                }else if(document.getElementById("lBForm").style.display == "none"){
-                    document.getElementById("sBForm").submit();
-                }else{
-                    document.getElementById("sBForm").style.display = "none";
-                    document.getElementById("lBForm").style.display = "block";
-                }
+                document.getElementById("lBForm").submit();
             }
         </script>
-{% endblock %}		
+{% endblock %}

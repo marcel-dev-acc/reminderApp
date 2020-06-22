@@ -1,7 +1,8 @@
 # Django Web App Demonstration: Reminder App
 
 The files and contents of the files have been created for express purpose of demonstrating how to initiate docker 
-containers associated with a web app that manages customer remind requests.
+containers associated with a web app that manages customer reminder requests.
+
 To run this project as a development package:
 1) Please clone the repo
 2) Navigate to the root folder that containers the Dockerfile
@@ -14,6 +15,7 @@ Run the following commands in order:
 - ```bash docker-compose up ```
 
 You will notice that there are pending migrations that should be dealt with.
+
 Stop the containers by either using the docker dashboard or using CTRL + C
 
 - ```bash docker-compose run web python manage.py migrate ```

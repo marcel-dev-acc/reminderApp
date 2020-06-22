@@ -12,7 +12,8 @@ To run this project as a development package:
 Run the following commands in order:
 - ```bash docker-compose build ```
 - ```bash docker-compose up ```
-You will notice that there are pending migrations that should be dealt with
+
+You will notice that there are pending migrations that should be dealt with.
 Stop the containers by either using the docker dashboard or using CTRL + C
 
 - ```bash docker-compose run web python manage.py migrate ```

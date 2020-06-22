@@ -2,29 +2,30 @@
 
 {% block content %}
 		<div class="mainCont">
-            <div class="spaceDiv">
-            </div>
+            <div class="spaceDiv"></div>
             <div class="Box">
                 <h1 class="lBHeader">Schedule A Reminder</h1>
-                <form id="lBForm" method="post" action="">
+				<h2 class="lBHeader">Welcome {{ userFname|title }}</h2>
+                <form id="lBForm" method="post" action="/schedule-message/">{% csrf_token %}
                     <table class="sTbl">
                         <tr>
                             <td class="sCol sColLbl">
-                                <label for="username">Date:</label>
+                                <label for="Date">Date:</label>
                             </td>
                             <td style="width: 50%">
-                                <input class="sIn" type="date" name="username" value="">
+                                <input class="sIn" type="date" name="date" value="">
                             </td>
                         </tr>
                         <tr>
                             <td class="sColLbl">
-                                <label for="password">Time:</label>
+                                <label for="Time">Time:</label>
                             </td>
                             <td style="width: 50%">
-                                <input class="sIn" type="time" name="password" value="">
+                                <input class="sIn" type="time" name="time" value="">
                             </td>
                         </tr>
                     </table>
+					<input type="hidden" name="tel" value="{{ tel }}">
                 </form>
                 <p class="nvB">
                     <span id="login" onclick="mkForm();">Add Reminder</span>
@@ -33,14 +34,40 @@
             <br>
             <div class="Box">
                 <h2 class="lBHeader">My Message Queue</h2>
-                <p class="nvB">
-                    # message queue
-                </p>
+                <table class="aTbl">
+                    <tr class="aCol aColLbl">
+						<td class="aRow">
+							<b>Destination</b>
+						</td>
+						<td class="aRow">
+							<b>Reminder<br>Date</b>
+						</td>
+						<td class="aRow">
+							<b>Reminder<br>Time</b>
+						</td>
+						<td class="aRow">
+							<b>Sent</b>
+						</td>
+					</tr>
+					{% for row in msgQueue %}
+					<tr class="aCol aColLbl">
+						{% for item in row %}
+						<td class="aRow">
+							{{ item }}
+						</td>
+						{% endfor %}
+					</tr>
+					{% endfor %}
+                </table>
             </div>
+			<div class="spaceDiv"></div>
+			<div class="spaceDiv"></div>
+			<div class="spaceDiv"></div>
+			<div class="spaceDiv"></div>
         </div>
         <script>
             function mkForm(){
                 document.getElementById("lBForm").submit();
             }
         </script>
-{% endblock %}		
+{% endblock %}	

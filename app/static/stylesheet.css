@@ -3,11 +3,10 @@ body{
     font-family: sans-serif;
 }
 .mainCont{
-    height: 100vh;
     background-color: rgba(2,2,2,0.15);
 }
 .spaceDiv{
-    height:30%;
+    height:100px;
 }
 .Box{
     border: solid;

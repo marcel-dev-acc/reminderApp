@@ -20,8 +20,12 @@ Stop the containers by either using the docker dashboard or using CTRL + C
 
 - ```bash docker-compose run web python manage.py migrate ```
 - ```bash docker-compose run web python manage.py createsuperuser ```
+
+Go ahead and create a super user account to access the admin panel of Django
+
 - ```bash docker-compose up ```
 
+The app will return a database error if there is no user account in the database, to get around this error you will need to sign up the first account OR create an account in the admin panel of Django.
 
 ## Development
 

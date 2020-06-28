@@ -43,9 +43,9 @@ This project has a `docker-compose.yml` file.
 ## Selenium Tests
 
 This project includes a scripted selenium test. The script runs using the chrome driver, which can be found in the zip file labelled "chromedriver_win32". Extract the chromedriver into the local folder and execute the file.
-On row 91 you will find the "CreateUser" function - this function creates a new user called 'user1'.
-On row 93 you will find the "LoginAsUser" function - this functions logs in as the user created in the previous function.
-On row 95 you will find the "ScheduleAMessage" function - this function adds a message to the task list.
+- On row 91 you will find the "CreateUser" function - this function creates a new user called 'user1'.
+- On row 93 you will find the "LoginAsUser" function - this functions logs in as the user created in the previous function.
+- On row 95 you will find the "ScheduleAMessage" function - this function adds a message to the task list.
 
 ## Contributing
 

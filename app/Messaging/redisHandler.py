@@ -6,7 +6,11 @@ r = redis.Redis(host='redis', port=6379, db=0)
 
 class RedisHandler:
 
-    def SetDB(Type, Key,Value):
+    def PureQueue():
+        for Item in r.scan_iter():
+            print(Item)
+
+    def SetDB(Type, Key, Value):
         if Type == "UserLogin":
             Now = datetime.now()
             UserLogin = "UL:" + str(Now.year) + "-" +  str(Now.month)
@@ -30,6 +34,14 @@ class RedisHandler:
         Value = json.dumps(Value)
         r.set(Key, Value)
         
+    def SetSkip(Key, Value):
+        Value = {
+            "tel": Value,
+            "sent": "Skip"
+        }
+        Value = json.dumps(Value)
+        r.set(Key, Value)
+        
     def GetDB(Key):
         return r.get(Key)
         
@@ -42,6 +54,7 @@ class RedisHandler:
         Year0 = Now.year
         Year1 = Year0 + 1
         DataArray = []
+        SortArray = []
         if Type == "All":
             # Fetch All Pending Messages
             for Item in r.scan_iter():
@@ -49,11 +62,22 @@ class RedisHandler:
                 if Key[0:4] == str(Year0) or Key[0:4] == str(Year1):
                     Value = r.get(Key)
                     DateTime = Key.split(" ")
+                    DTYear = int(DateTime[0][0:4])
+                    DTMonth = int(DateTime[0][5:7])
+                    DTDay = int(DateTime[0][8:10])
+                    DTHour = int(DateTime[1][0:2])
+                    DTMin = int(DateTime[1][3:5])
                     Value = r.get(Key)
                     Value = Value.decode("utf-8")
                     Value = json.loads(Value)
-                    DataArray.append([Value['tel'], DateTime[0], 
+                    SortArray.append([datetime(DTYear, DTMonth,
+                                            DTDay, DTHour, DTMin), 
+                                    Value['tel'], DateTime[0], 
                                     DateTime[1], Value['sent']])
+            SortArray.sort()
+            for Row in SortArray:
+                DataArray.append([Row[1], Row[2], Row[3],
+                                Row[4]])
                                     
         elif Type[0:1] == "0":
             # Fetch Specific Pending Messages
@@ -61,13 +85,24 @@ class RedisHandler:
                 Key = Item.decode("utf-8")
                 if Key[0:4] == str(Year0) or Key[0:4] == str(Year1):
                     DateTime = Key.split(" ")
+                    DTYear = int(DateTime[0][0:4])
+                    DTMonth = int(DateTime[0][5:7])
+                    DTDay = int(DateTime[0][8:10])
+                    DTHour = int(DateTime[1][0:2])
+                    DTMin = int(DateTime[1][3:5])
                     Value = r.get(Key)
                     Value = Value.decode("utf-8")
                     Value = json.loads(Value)
                     if Value['tel'] == Type:
-                        DataArray.append([Value['tel'], DateTime[0], 
+                        SortArray.append([datetime(DTYear, DTMonth,
+                                                DTDay, DTHour, DTMin), 
+                                        Value['tel'], DateTime[0], 
                                         DateTime[1], Value['sent']])
-                                        
+            SortArray.sort()
+            for Row in SortArray:
+                DataArray.append([Row[1], Row[2], Row[3],
+                                Row[4]])
+
         else:
             # Fetch User Login History
             for Item in r.scan_iter():

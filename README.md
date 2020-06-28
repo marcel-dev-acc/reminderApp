@@ -40,6 +40,12 @@ This project has a `docker-compose.yml` file.
 
 ```docker-compose up```
 
+## Selenium Tests
+
+This project includes a scripted selenium test. 
+On row 91 you will find the "CreateUser" function - this function creates a new user called 'user1'.
+On row 93 you will find the "LoginAsUser" function - this functions logs in as the user created in the previous function.
+On row 95 you will find the "ScheduleAMessage" function - this function adds a message to the task list.
 
 ## Contributing
 

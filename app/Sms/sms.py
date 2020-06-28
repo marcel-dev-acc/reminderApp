@@ -12,9 +12,9 @@ def send(to, source, body):
         return InvalidDestinationException(MessageException)
     
     if proceed == True:
-        access_api = "Success" # api response is successful if there is credit
+        access_api = "Fail" # api response is failed
         access_api = "Wait" # api response is successful if there is no credit
-        access_api = "Fail" # api response is successful if there is no credit
+        access_api = "Success" # api response is successful if there is credit
         if access_api == "Success":
             return "success"
         elif access_api == "Wait":

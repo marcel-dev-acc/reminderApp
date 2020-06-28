@@ -17,7 +17,7 @@
        
     web:
       build: .
-      command: python manage.py runserver 0.0.0.0:8000
+      command: gunicorn djprog.wsgi:application --bind 0.0.0.0:8000
       volumes:
         - .:/code
       ports:
@@ -36,3 +36,12 @@
       depends_on:
         - db
         - redis
+        
+    nginx:
+      build: ./nginx
+      volumes:
+        - .:/code
+      ports:
+        - 1337:80
+      depends_on:
+        - web

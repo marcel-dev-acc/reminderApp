@@ -31,13 +31,11 @@ The app will return a database error if there is no user account in the database
 
 This project has a `Dockerfile` file.
 
-```docker-compose build
-```
+```docker-compose build```
 
 This project has a `docker-compose.yml` file.
 
-```docker-compose up
-```
+```docker-compose up```
 
 
 ## Contributing
